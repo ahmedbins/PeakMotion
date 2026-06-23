@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meptides Secure Payment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./payment.css">
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+  <main class="payment-shell">
+    <section class="checkout-panel">
+      <div class="brand-row">
+        <a class="brand" href="https://meptides.com">Meptides<span>.</span></a>
+        <span class="secure-label">Secure card payment</span>
+      </div>
+
+      <div id="statusBanner" class="status-banner" hidden></div>
+
+      <div class="order-block">
+        <p class="eyebrow">Order</p>
+        <h1 id="orderTitle">Preparing payment</h1>
+        <p id="orderMeta" class="muted">Validating your WooCommerce order.</p>
+      </div>
+
+      <form id="paymentForm" class="payment-form" hidden>
+        <div id="paymentElement" class="payment-element"></div>
+        <button id="submitButton" class="pay-button" type="submit">
+          <span id="buttonText">Pay now</span>
+        </button>
+        <p class="fine-print">
+          Card details are collected by Stripe in encrypted payment frames. Meptides never sees or stores your card number.
+        </p>
+      </form>
+    </section>
+
+    <aside class="summary-panel">
+      <p class="eyebrow">Summary</p>
+      <div class="summary-total">
+        <span>Total</span>
+        <strong id="summaryTotal">--</strong>
+      </div>
+      <div id="lineItems" class="line-items"></div>
+      <div class="summary-note">
+        <strong>Research-use order</strong>
+        <span>Payment completion returns you to the Meptides WooCommerce receipt page.</span>
+      </div>
+    </aside>
+  </main>
+
+  <script type="module" src="./payment.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meptides Payment Complete</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../payment.css">
+</head>
+<body>
+  <main class="payment-shell single">
+    <section class="checkout-panel">
+      <div class="brand-row">
+        <a class="brand" href="https://meptides.com">Meptides<span>.</span></a>
+        <span class="secure-label">Payment status</span>
+      </div>
+      <div id="statusBanner" class="status-banner">Confirming your payment with Stripe.</div>
+      <div class="order-block">
+        <p class="eyebrow">Final step</p>
+        <h1 id="completeTitle">Almost done</h1>
+        <p id="completeText" class="muted">Please keep this page open while the order is updated.</p>
+      </div>
+      <a id="returnLink" class="pay-button link-button" href="https://meptides.com" hidden>Return to Meptides</a>
+    </section>
+  </main>
+
+  <script type="module" src="./complete.js"></script>
+</body>
+</html>
