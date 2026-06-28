@@ -65,18 +65,13 @@ a {
 
 .brand {
   display: inline-flex;
-  align-items: baseline;
-  font-weight: 800;
-  font-size: clamp(30px, 4vw, 42px);
-  line-height: 1;
-  letter-spacing: -0.04em;
+  align-items: center;
 }
 
-.brand-dot {
-  background: var(--gradient-bar);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+.brand-logo {
+  height: 32px;
+  width: auto;
+  display: block;
 }
 
 .secure-chip {
@@ -166,11 +161,11 @@ a {
 }
 
 .order-block h1 {
-  max-width: 720px;
+  max-width: 640px;
   margin: 14px 0 10px;
-  font-size: clamp(38px, 6.2vw, 72px);
-  line-height: 0.98;
-  letter-spacing: -0.05em;
+  font-size: clamp(30px, 4.4vw, 46px);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
   font-weight: 800;
   overflow-wrap: break-word;
 }
