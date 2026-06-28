@@ -91,9 +91,13 @@ async function initialize() {
     appearance: {
       theme: 'stripe',
       variables: {
-        colorPrimary: '#c8942f',
-        borderRadius: '6px',
-        fontFamily: 'Inter, system-ui, sans-serif'
+        colorPrimary: '#111111',
+        colorText: '#111111',
+        colorTextSecondary: '#555555',
+        colorBackground: '#ffffff',
+        colorDanger: '#ef4143',
+        borderRadius: '12px',
+        fontFamily: 'Manrope, system-ui, sans-serif'
       }
     },
     defaultValues: {

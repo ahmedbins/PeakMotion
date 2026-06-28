@@ -5,22 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meptides Secure Payment</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./payment.css">
   <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
+  <header class="payment-header" aria-label="Meptides payment header">
+    <a class="brand" href="https://meptides.com" aria-label="Return to meptides">
+      meptides<span class="brand-dot">.</span>
+    </a>
+    <span class="secure-chip">Secure card payment</span>
+  </header>
+
   <main class="payment-shell">
     <section class="checkout-panel">
-      <div class="brand-row">
-        <a class="brand" href="https://meptides.com">Meptides<span>.</span></a>
-        <span class="secure-label">Secure card payment</span>
-      </div>
+      <div class="accent-line" aria-hidden="true"></div>
 
       <div id="statusBanner" class="status-banner" hidden></div>
 
       <div class="order-block">
-        <p class="eyebrow">Order</p>
+        <p class="eyebrow"><span class="eyebrow-mark"></span>Order</p>
         <h1 id="orderTitle">Preparing payment</h1>
         <p id="orderMeta" class="muted">Validating your WooCommerce order.</p>
       </div>
@@ -37,7 +42,8 @@
     </section>
 
     <aside class="summary-panel">
-      <p class="eyebrow">Summary</p>
+      <div class="accent-line" aria-hidden="true"></div>
+      <p class="eyebrow"><span class="eyebrow-mark"></span>Summary</p>
       <div class="summary-total">
         <span>Total</span>
         <strong id="summaryTotal">--</strong>
