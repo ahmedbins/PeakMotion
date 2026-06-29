@@ -10,6 +10,7 @@ const orderTitle = document.querySelector('#orderTitle');
 const orderMeta = document.querySelector('#orderMeta');
 const summaryTotal = document.querySelector('#summaryTotal');
 const lineItems = document.querySelector('#lineItems');
+const orderDetails = document.querySelector('#orderDetails');
 
 let stripe;
 let elements;
@@ -36,8 +37,27 @@ function formatMoney(amount, currency) {
 
 function renderOrder(payload) {
   orderTitle.textContent = `Order #${payload.order_id}`;
-  orderMeta.textContent = payload.email ? `Receipt email: ${payload.email}` : 'Secure Meptides card payment';
+  orderMeta.textContent = 'Secure Meptides card payment';
   summaryTotal.textContent = formatMoney(payload.amount, payload.currency);
+
+  if (orderDetails) {
+    const rows = [
+      ['Order', payload.order_id ? `#${payload.order_id}` : ''],
+      ['Email', payload.email],
+      ['Ship to', payload.ship_to],
+      ['Delivery', payload.shipping_method]
+    ];
+    orderDetails.innerHTML = '';
+    for (const [label, value] of rows) {
+      if (!value) continue;
+      const dt = document.createElement('dt');
+      dt.textContent = label;
+      const dd = document.createElement('dd');
+      dd.textContent = value;
+      orderDetails.append(dt, dd);
+    }
+  }
+
   lineItems.innerHTML = '';
 
   for (const item of payload.items || []) {
