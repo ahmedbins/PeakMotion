@@ -30,9 +30,7 @@
 body {
   min-height: 100vh;
   margin: 0;
-  background:
-    linear-gradient(180deg, var(--bg-2) 0 104px, var(--bg) 104px 100%),
-    var(--bg);
+  background: var(--bg);
   color: var(--text);
   font-family: Manrope, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 15px;
@@ -51,8 +49,8 @@ a {
   position: sticky;
   top: 0;
   z-index: 10;
-  min-height: 74px;
-  padding: 18px 32px;
+  min-height: 70px;
+  padding: 16px 32px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -77,11 +75,11 @@ a {
 .secure-chip {
   display: inline-flex;
   align-items: center;
-  min-height: 38px;
-  padding: 8px 16px;
-  border: 1px solid var(--border-hot);
+  min-height: 32px;
+  padding: 7px 12px;
+  border: 0;
   border-radius: var(--radius-pill);
-  color: var(--text-2);
+  color: var(--text-3);
   background: #fff;
   font-size: 12px;
   font-weight: 700;
@@ -93,12 +91,12 @@ a {
 .payment-shell {
   width: calc(100% - 40px);
   max-width: 1180px;
-  min-height: calc(100vh - 74px);
+  min-height: calc(100vh - 70px);
   margin: 0 auto;
-  padding: 72px 0;
+  padding: 48px 0;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
-  gap: 28px;
+  gap: 32px;
   align-items: start;
 }
 
@@ -113,18 +111,18 @@ a {
   overflow: hidden;
   min-width: 0;
   border: 1px solid var(--border);
-  border-radius: var(--radius-3);
+  border-radius: var(--radius-2);
   background: #fff;
-  box-shadow: var(--shadow-card);
+  box-shadow: none;
 }
 
 .checkout-panel {
-  padding: clamp(28px, 5vw, 54px);
+  padding: clamp(24px, 4vw, 42px);
 }
 
 .summary-panel {
   align-self: stretch;
-  padding: 30px;
+  padding: 26px;
 }
 
 .accent-line {
@@ -157,32 +155,38 @@ a {
 }
 
 .order-block {
-  margin-bottom: 30px;
+  margin-bottom: 18px;
 }
 
 .order-block h1 {
   max-width: 640px;
-  margin: 14px 0 10px;
-  font-size: clamp(30px, 4.4vw, 46px);
-  line-height: 1.02;
-  letter-spacing: -0.03em;
+  margin: 0 0 6px;
+  font-size: clamp(22px, 2.35vw, 28px);
+  line-height: 1.12;
+  letter-spacing: -0.012em;
   font-weight: 800;
   overflow-wrap: break-word;
 }
 
+#orderMeta {
+  margin: 0;
+  color: var(--text-3);
+  font-size: 0.92rem;
+  font-weight: 650;
+}
+
 .muted,
-.fine-print,
 .summary-note span {
   color: var(--text-2);
   overflow-wrap: anywhere;
 }
 
 .status-banner {
-  margin: 0 0 28px;
-  padding: 14px 16px;
-  border: 1px solid rgba(48, 197, 244, 0.32);
-  border-radius: var(--radius-2);
-  background: rgba(48, 197, 244, 0.08);
+  margin: 0 0 22px;
+  padding: 12px 14px;
+  border: 1px solid rgba(48, 197, 244, 0.26);
+  border-radius: var(--radius-1);
+  background: rgba(48, 197, 244, 0.06);
   color: #126b85;
   font-size: 0.92rem;
   font-weight: 600;
@@ -203,19 +207,19 @@ a {
 
 .payment-form {
   display: grid;
-  gap: 18px;
+  gap: 14px;
 }
 
 .payment-element {
-  padding: 18px;
+  padding: 14px;
   border: 1px solid var(--border);
-  border-radius: var(--radius-2);
-  background: var(--bg-2);
+  border-radius: var(--radius-1);
+  background: #fff;
 }
 
 .pay-button {
   width: 100%;
-  min-height: 56px;
+  min-height: 52px;
   border: 1px solid var(--text);
   border-radius: var(--radius-pill);
   background: var(--text);
@@ -248,14 +252,9 @@ a {
   max-width: 260px;
 }
 
-.fine-print {
-  margin: 0;
-  font-size: 0.84rem;
-}
-
 .summary-total {
-  margin: 18px 0 24px;
-  padding: 0 0 22px;
+  margin: 16px 0 18px;
+  padding: 0 0 18px;
   border-bottom: 1px solid var(--border);
   display: flex;
   justify-content: space-between;
@@ -275,7 +274,7 @@ a {
 
 .line-items {
   display: grid;
-  gap: 12px;
+  gap: 4px;
 }
 
 .line-item {
@@ -283,7 +282,7 @@ a {
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 16px;
   align-items: start;
-  padding: 14px 0;
+  padding: 12px 0;
   border-bottom: 1px solid var(--border);
   color: var(--text-2);
   font-size: 0.92rem;
@@ -300,13 +299,15 @@ a {
 }
 
 .summary-note {
-  margin-top: 26px;
-  padding: 18px;
+  margin-top: 20px;
+  padding: 0;
   border: 1px solid var(--border);
-  border-radius: var(--radius-2);
-  background: var(--bg-2);
+  border-width: 1px 0 0;
+  border-radius: 0;
+  background: transparent;
   display: grid;
   gap: 6px;
+  padding-top: 16px;
 }
 
 .summary-note strong {
@@ -315,7 +316,7 @@ a {
 
 .order-details {
   margin: 4px 0 0;
-  padding: 18px 0 0;
+  padding: 16px 0 0;
   border-top: 1px solid var(--border);
   display: grid;
   grid-template-columns: 84px 1fr;
@@ -348,7 +349,7 @@ a {
     width: calc(100% - 28px);
     max-width: 720px;
     grid-template-columns: 1fr;
-    padding: 34px 0;
+    padding: 24px 0;
   }
 
   .checkout-panel,
@@ -358,7 +359,7 @@ a {
 
   .checkout-panel,
   .summary-panel {
-    padding: 24px;
+    padding: 20px;
   }
 
   .order-block h1 {
@@ -375,7 +376,7 @@ a {
 
   .checkout-panel,
   .summary-panel {
-    padding: 20px;
+    padding: 18px;
   }
 
   .line-item {
