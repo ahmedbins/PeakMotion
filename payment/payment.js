@@ -36,13 +36,13 @@ function formatMoney(amount, currency) {
 }
 
 function renderOrder(payload) {
-  orderTitle.textContent = `Order #${payload.order_id}`;
-  orderMeta.textContent = 'Secure Meptides card payment';
+  orderTitle.textContent = 'Secure card payment';
+  orderMeta.textContent = payload.order_id ? `#${payload.order_id}` : 'Secure Meptides payment';
   summaryTotal.textContent = formatMoney(payload.amount, payload.currency);
 
   if (orderDetails) {
     const rows = [
-      ['Order', payload.order_id ? `#${payload.order_id}` : ''],
+      ['Reference', payload.order_id ? `#${payload.order_id}` : ''],
       ['Email', payload.email],
       ['Ship to', payload.ship_to],
       ['Delivery', payload.shipping_method]
