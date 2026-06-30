@@ -37,7 +37,7 @@ function formatMoney(amount, currency) {
 
 function renderOrder(payload) {
   orderTitle.textContent = 'Complete payment';
-  orderMeta.textContent = payload.order_id ? `Reference #${payload.order_id}` : 'Payment details';
+  orderMeta.textContent = payload.order_id ? `Order #${payload.order_id}` : 'Payment details';
   summaryTotal.textContent = formatMoney(payload.amount, payload.currency);
 
   if (orderDetails) {
