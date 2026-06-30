@@ -35,6 +35,30 @@ function formatMoney(amount, currency) {
   }).format((Number(amount) || 0) / 100);
 }
 
+function readLineItemAmount(item) {
+  const candidates = [
+    item?.subtotal,
+    item?.total,
+    item?.line_total,
+    item?.amount
+  ];
+
+  for (const candidate of candidates) {
+    const value = Number(candidate);
+    if (Number.isFinite(value) && value > 0) {
+      return value;
+    }
+  }
+
+  const unitAmount = Number(item?.unit_amount || item?.unit_price || item?.price);
+  const quantity = Number(item?.quantity || 1);
+  if (Number.isFinite(unitAmount) && unitAmount > 0) {
+    return unitAmount * Math.max(1, quantity || 1);
+  }
+
+  return 0;
+}
+
 function renderOrder(payload) {
   orderTitle.textContent = 'Complete payment';
   orderMeta.textContent = payload.order_id ? `Order #${payload.order_id}` : 'Payment details';
@@ -69,7 +93,7 @@ function renderOrder(payload) {
     detail.append(name, document.createElement('br'), `Qty ${item.quantity}`);
 
     const amount = document.createElement('span');
-    amount.textContent = formatMoney(item.subtotal, payload.currency);
+    amount.textContent = formatMoney(readLineItemAmount(item), payload.currency);
 
     row.append(detail, amount);
     lineItems.append(row);
