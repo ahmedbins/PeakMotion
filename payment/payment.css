@@ -91,7 +91,6 @@ a {
 .payment-shell {
   width: calc(100% - 40px);
   max-width: 1180px;
-  min-height: calc(100vh - 70px);
   margin: 0 auto;
   padding: 48px 0;
   display: grid;
@@ -121,7 +120,7 @@ a {
 }
 
 .summary-panel {
-  align-self: stretch;
+  align-self: start;
   padding: 26px;
 }
 
@@ -349,7 +348,8 @@ a {
     width: calc(100% - 28px);
     max-width: 720px;
     grid-template-columns: 1fr;
-    padding: 24px 0;
+    gap: 18px;
+    padding: 24px 0 32px;
   }
 
   .checkout-panel,
