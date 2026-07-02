@@ -18,6 +18,12 @@ let elements;
 function showStatus(message, type = '') {
   statusBanner.hidden = false;
   statusBanner.textContent = message;
+  if (type === 'error') {
+    const link = document.createElement('a');
+    link.href = 'https://shop.meptides.com/checkout/';
+    link.textContent = 'Return to checkout';
+    statusBanner.append(' ', link);
+  }
   statusBanner.className = `status-banner ${type}`.trim();
 }
 
@@ -59,8 +65,12 @@ function readLineItemAmount(item) {
   return 0;
 }
 
+let payLabel = 'Pay now';
+
 function renderOrder(payload) {
   orderTitle.textContent = 'Complete payment';
+  payLabel = `Pay ${formatMoney(payload.amount, payload.currency)}`;
+  buttonText.textContent = payLabel;
   orderMeta.textContent = payload.order_id ? `Order #${payload.order_id}` : 'Payment details';
   summaryTotal.textContent = formatMoney(payload.amount, payload.currency);
 
@@ -140,7 +150,7 @@ async function initialize() {
         colorTextSecondary: '#555555',
         colorBackground: '#ffffff',
         colorDanger: '#ef4143',
-        borderRadius: '12px',
+        borderRadius: '8px',
         fontFamily: 'Manrope, system-ui, sans-serif'
       }
     },
@@ -155,7 +165,7 @@ async function initialize() {
   elements.create('payment').mount('#paymentElement');
 
   paymentForm.hidden = false;
-  showStatus('Stripe payment form ready.', 'success');
+  statusBanner.hidden = true;
 }
 
 paymentForm.addEventListener('submit', async (event) => {
@@ -180,7 +190,7 @@ paymentForm.addEventListener('submit', async (event) => {
   if (result.error) {
     showStatus(result.error.message || 'Payment could not be completed.', 'error');
     submitButton.disabled = false;
-    buttonText.textContent = 'Pay now';
+    buttonText.textContent = payLabel;
   }
 });
 

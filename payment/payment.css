@@ -27,6 +27,10 @@
   box-sizing: border-box;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 body {
   min-height: 100vh;
   margin: 0;
@@ -134,23 +138,13 @@ a {
 }
 
 .eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
+  display: block;
   margin: 0;
-  color: var(--text-3);
+  color: var(--text);
   font-size: 12px;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.07em;
-}
-
-.eyebrow-mark {
-  width: 30px;
-  height: 4px;
-  border-radius: 4px;
-  background: var(--gradient-bar);
-  flex: none;
 }
 
 .order-block {
@@ -181,7 +175,7 @@ a {
 }
 
 .status-banner {
-  margin: 0 0 22px;
+  margin: 0 0 18px;
   padding: 12px 14px;
   border: 1px solid rgba(48, 197, 244, 0.26);
   border-radius: var(--radius-1);
@@ -190,6 +184,12 @@ a {
   font-size: 0.92rem;
   font-weight: 600;
   overflow-wrap: anywhere;
+}
+
+.status-banner a {
+  color: inherit;
+  text-decoration: underline;
+  font-weight: 700;
 }
 
 .status-banner.error {
@@ -210,10 +210,9 @@ a {
 }
 
 .payment-element {
-  padding: 14px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-1);
-  background: #fff;
+  padding: 0;
+  border: 0;
+  background: transparent;
 }
 
 .pay-button {

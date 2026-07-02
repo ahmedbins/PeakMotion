@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./payment.css?v=20260630d">
+  <link rel="stylesheet" href="./payment.css?v=20260702a">
   <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
@@ -22,12 +22,12 @@
     <section class="checkout-panel">
       <div class="accent-line" aria-hidden="true"></div>
 
-      <div id="statusBanner" class="status-banner" hidden></div>
-
       <div class="order-block">
         <h1 id="orderTitle">Preparing payment</h1>
         <p id="orderMeta" class="muted">Validating payment details.</p>
       </div>
+
+      <div id="statusBanner" class="status-banner" hidden></div>
 
       <form id="paymentForm" class="payment-form" hidden>
         <div id="paymentElement" class="payment-element"></div>
@@ -39,7 +39,7 @@
 
     <aside class="summary-panel">
       <div class="accent-line" aria-hidden="true"></div>
-      <p class="eyebrow"><span class="eyebrow-mark"></span>Summary</p>
+      <p class="eyebrow">Summary</p>
       <div class="summary-total">
         <span>Total</span>
         <strong id="summaryTotal">--</strong>
@@ -49,6 +49,6 @@
     </aside>
   </main>
 
-  <script type="module" src="./payment.js?v=20260630d"></script>
+  <script type="module" src="./payment.js?v=20260702a"></script>
 </body>
 </html>
